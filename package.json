@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "node server.js",
-    "build": "next build",
-    "start": "cross-env NODE_ENV=production node server.js"
+    "build": "cd app && next build",
+    "start": "node server.js"
   },
   "dependencies": {
     "@zeit/next-less": "^1.0.1",
@@ -13,12 +13,15 @@
     "express": "^4.17.1",
     "less": "^3.11.1",
     "lodash": "^4.17.15",
-    "next": "latest",
+    "next": "9.1.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.0",
     "redux": "^4.0.5",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0"
+  },
+  "devDependencies": {
+    "babel-plugin-transform-remove-console": "^6.9.4"
   }
 }

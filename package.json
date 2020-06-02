@@ -2,9 +2,11 @@
   "name": "custom-server-express",
   "version": "1.0.0",
   "scripts": {
-    "dev": "node server.js",
-    "build": "cd app && next build",
-    "start": "node server.js"
+    "start": "node server.js",
+    "prebuild": "cd app && npm run clean && next build",
+    "build": "cross-env NODE_ENV=production && node server",
+    "build:win": "npm run prebuild && set NODE_ENV=production && node server",
+    "clean": "rd /s /q app\\.next"
   },
   "dependencies": {
     "@zeit/next-less": "^1.0.1",

@@ -1,7 +1,7 @@
 const express = require('express')
 const client = require('./next')
 
-const port = parseInt(process.env.PORT, 10) || 3000
+const port = parseInt(process.env.PORT, 10) || 5000
 const handle = client.getRequestHandler()
 
 client.prepare().then(() => {
@@ -13,7 +13,12 @@ client.prepare().then(() => {
 
   server.get('/b', (req, res) => {
     return client.render(req, res, '/b', req.query)
-	})
+  })
+  
+  // heart beat
+  server.get("/heart_beat", (_req, res) => {
+    return res.end(JSON.stringify(Date.now()));
+  });
 
 	server.get('/', (req, res) => {
 		res.data = "data";

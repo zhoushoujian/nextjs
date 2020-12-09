@@ -26,6 +26,6 @@
   "devDependencies": {
     "babel-plugin-transform-remove-console": "^6.9.4"
   },
-  "repository": "https://github.com/zhoushoujian/file-share-sys",
+  "repository": "https://github.com/zhoushoujian/nextjs",
   "license": "MIT"
 }

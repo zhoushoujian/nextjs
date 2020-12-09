@@ -1,4 +1,6 @@
-# Custom Express Server example
+# nextjs-example
+
+```nextjs服务端渲染的空壳项目,集成常用的框架,如redux和less,方便快速初始化一个项目```
 
 Most of the times the default Next server will be enough but sometimes you want to run your own server to customize routes or other kind of the app behavior. Next provides a [Custom server and routing](https://github.com/zeit/next.js#custom-server-and-routing) so you can customize as much as you want.
 
@@ -9,16 +11,12 @@ The example shows a server that serves the component living in `pages/a.js` when
 ## Functions
 nextjs + react + redux + express + less
 
-### Download manually
-
-Download the example:  
-
-Install it and run:  
+### Install
 
 ```bash
 npm install
-npm run dev
+npm run start
 # or
 yarn
-yarn dev
+yarn start
 ```

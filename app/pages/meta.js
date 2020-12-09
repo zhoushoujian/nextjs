@@ -17,6 +17,7 @@ const Meta = (props) => {
         <meta name="author" content="" />
         {META_KEYWORDS && (<meta name="keywords" content={META_KEYWORDS} />)}
         {noIndex && (<meta name="robots" content="noindex, follow" />)}
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
       </Head>
     );
 };

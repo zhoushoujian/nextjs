@@ -9,8 +9,6 @@
     "clean": "rm -rf app/.next"
   },
   "dependencies": {
-    "@zeit/next-css": "^1.0.1",
-    "@zeit/next-less": "^1.0.1",
     "body-parser": "^1.19.0",
     "cross-env": "^7.0.2",
     "css-loader": "^5.0.1",
@@ -18,7 +16,6 @@
     "less": "^3.11.1",
     "lodash": "^4.17.20",
     "next": "^10.0.3",
-    "next-compose-plugins": "^2.2.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.0",
@@ -27,7 +24,10 @@
     "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
+    "@zeit/next-css": "^1.0.1",
+    "@zeit/next-less": "^1.0.1",
     "babel-plugin-transform-remove-console": "^6.9.4",
+    "next-compose-plugins": "^2.2.1",
     "webpack": "^4.46.0"
   },
   "repository": "https://github.com/zhoushoujian/nextjs",

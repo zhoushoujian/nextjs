@@ -24,7 +24,8 @@
     "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
-    "babel-plugin-transform-remove-console": "^6.9.4"
+    "babel-plugin-transform-remove-console": "^6.9.4",
+    "webpack": "^4.46.0"
   },
   "repository": "https://github.com/zhoushoujian/nextjs",
   "license": "MIT"

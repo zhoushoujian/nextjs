@@ -7,12 +7,12 @@ const router = Router();
 
 router.get('/api', (req: Request, res: Response | any) => {
   try {
-    const string = Math.random().toString(32);
+    const string = Math.random().toString(32).slice(2);
     logger.info('/api get success, string', string);
     return writeResponse(req, res, { response: string });
   } catch (err) {
     logger.error('/api get err', err);
-    reportError(req, res, err);
+    return reportError(req, res, err);
   }
 });
 

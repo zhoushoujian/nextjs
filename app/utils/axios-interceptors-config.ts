@@ -1,4 +1,5 @@
-// import { message } from '@shuyun-ep-team/kylin-ui';
+// eslint-disable-next-line no-restricted-imports
+import { message } from 'antd';
 
 const axiosPendingArr: { u: string; cancel: () => void }[] = [];
 export const removePending = (config: { url: string; method: string }) => {
@@ -61,7 +62,7 @@ export const axiosInterceptorsConfig = (axios: any) => {
         } else if (error.response.data.result.errText === 'ip blocked') {
           console.error('axios.interceptors.response.use ip blocked');
           if (!visitApiMoreTimes) {
-            // message.error('您在短时间内访问服务器次数过多，请稍后重试');
+            message.error('您在短时间内访问服务器次数过多，请稍后重试');
             visitApiMoreTimes = true;
             return Promise.reject(error.response.data.result);
           } else {
@@ -92,7 +93,7 @@ export const axiosInterceptorsConfig = (axios: any) => {
           }
         } else {
           if (error.toString() === 'Error: Network Error') {
-            // message.error('请检查网络连接');
+            message.error('请检查网络连接');
             return Promise.reject(error);
           }
           response = error;
@@ -100,11 +101,11 @@ export const axiosInterceptorsConfig = (axios: any) => {
       }
       if (error.response) {
         if (error.response.status === 400) {
-          // message.error(response.result.errText);
+          message.error(response.result.errText);
         } else if (error.response.status === 500) {
-          // message.error('系统错误，请联系管理员');
+          message.error('系统错误，请联系管理员');
         } else {
-          // message.error('未知错误');
+          message.error('未知错误');
           console.error('未知错误 response', response);
         }
       }

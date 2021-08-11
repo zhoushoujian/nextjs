@@ -139,16 +139,34 @@ export const reportInvokeError = (req: Request, res: Response, errText: string) 
 };
 
 export const renderAndCache = async (req: Request, res: Response | any, pagePath: string, queryParams: any) => {
-  console.warn('data script size: ', res.data && JSON.stringify(res.data).length);
+  console.warn('data script size: ', res.data && calcSize(JSON.stringify(res.data).length));
   try {
     const time = Date.now();
     logger.info('======> Generating View with Next');
     const html = await client.renderToHTML(req, res, pagePath, queryParams);
-    logger.info('======> Time Taken by Next: ', Date.now() - time);
+    logger.info('======> Time Taken by Next: ', (Date.now() - time) / 1000, ' 秒');
     res.send(html);
     return;
   } catch (e) {
     logger.error('======> CLIENT.renderToHTML Error', e);
     client.renderError(e, req, res, pagePath, queryParams);
   }
+};
+
+export const calcSize = (size: number) => {
+  let formatSize = '';
+  if (!size) return '未知';
+  if (typeof size !== 'number') {
+    return String(size);
+  }
+  if (size > 1073741824) {
+    formatSize = (size / 1024 / 1024 / 1024).toFixed(2) + 'G';
+  } else if (size > 1048576) {
+    formatSize = (size / 1024 / 1024).toFixed(2) + 'M';
+  } else if (size > 1024) {
+    formatSize = (size / 1024).toFixed(0) + 'K';
+  } else if (size < 1024) {
+    formatSize = size + 'B';
+  }
+  return formatSize;
 };

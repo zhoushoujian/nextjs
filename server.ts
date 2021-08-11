@@ -18,7 +18,7 @@ client
   .then(() => {
     return checkDependenceVersion({
       dependenceArr: ['@shuyun-ep-team/eslint-config', 'beauty-logger'],
-      ignoreCheck: true,
+      ignoreCheck: IS_PRODUCTION,
       onlyWarn: IS_PRODUCTION,
       useDepCheck: true,
       autoFixOutdateDep: true,
@@ -29,7 +29,7 @@ client
 
     server.all('*', async function (req: express.Request, res: express.Response, next: express.NextFunction) {
       (req as any).id = uuid.v4();
-      if (req.url === '/assets/favicon.ico' || req.url === '/favicon.ico') {
+      if (req.url === '/img/favicon.ico' || req.url === '/favicon.ico') {
         return res.end();
       }
       logger.info(`server 收到客户端的请求数量: ${req.url} - ${req.method} - ${getIp(req, '')}`);

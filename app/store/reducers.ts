@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import userReducer from './user';
+import common from './common';
 
 export default combineReducers({
-    user: userReducer,
+  common,
 });

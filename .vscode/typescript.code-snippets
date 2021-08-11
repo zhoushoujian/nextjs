@@ -1,0 +1,154 @@
+{
+  // Place your enterprise-loktar-iam-fe 工作区 snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and
+  // description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope
+  // is left empty or omitted, the snippet gets applied to all languages. The prefix is what is
+  // used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+  // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders.
+  // Placeholders with the same ids are connected.
+  // Example:
+  // "Print to console": {
+  // 	"scope": "javascript,typescript",
+  // 	"prefix": "log",
+  // 	"body": [
+  // 		"console.log('$1');",
+  // 		"$2"
+  // 	],
+  // 	"description": "Log output to console"
+  // }
+  "generate react function components ignore Mobx": {
+    "prefix": "imprcjcomponent",
+    "scope": "typescript,typescriptreact",
+    "body": [
+      "import * as React from 'react';",
+      "import * as styles from './index.jss';",
+      "",
+      "const useStyles = createUseStyles(styles);",
+      "",
+      "interface IProps {",
+      "  name?: string;",
+      "}",
+      "",
+      "const ${1:ComponentName} = (props: IProps) => {",
+      "  const classes = useStyles();",
+      "  const { name } = props;",
+      "",
+      "  return <div className={classes.wrap}>{name}</div>;",
+      "};",
+      "",
+      "export default ${1:ComponentName};",
+      ""
+    ],
+    "description": "generate react function components"
+  },
+  "generate react function components mobx partial updates": {
+    "prefix": "imprcjmpcomponent",
+    "body": [
+      "import * as React from 'react';",
+      "import { Observer } from 'mobx-react';",
+      "import { createUseStore } from '@/hooks/use-store';",
+      "import Store from './store';",
+      "",
+      "const useStyles = createUseStyles(styles);",
+      "const useStores = createUseStore(new Store());",
+      "",
+      "interface IProps {",
+      "  name?: string;",
+      "}",
+      "",
+      "const ${1:ComponentName} = (props: IProps) => {",
+      "  const classes = useStyles();",
+      "  const store = useStores();",
+      "  const { name } = props;",
+      "",
+      "  return (",
+      "    <div className={classes.wrap}>",
+      "      <Observer>",
+      "        {() => {",
+      "          return (",
+      "            <></>",
+      "          );",
+      "        }}",
+      "      </Observer>",
+      "    </div>",
+      "  );",
+      "};",
+      "",
+      "export default ${1:ComponentName};",
+      ""
+    ],
+    "description": "generate react function components mobx partial Updates"
+  },
+  "generate react function components mobx full updates;": {
+    "prefix": "imprcjmcomponent",
+    "body": [
+      "import * as React from 'react';",
+      "import { useObserver } from 'mobx-react';",
+      "import { createUseStore } from '@/hooks/use-store';",
+      "import * as styles from './index.jss';",
+      "import Store from './store';",
+      "",
+      "const useStyles = createUseStyles(styles);",
+      "const useStores = createUseStore(new Store());",
+      "",
+      "interface IProps {",
+      "  name?: string;",
+      "}",
+      "",
+      "const ${1:ComponentName} = (props: IProps) => {",
+      "  const classes = useStyles();",
+      "  const store = useStores();",
+      "  const { name } = props;",
+      "",
+      "  const onHandelClick = () => {",
+      "    store.getList();",
+      "  };",
+      "",
+      "  return useObserver(() => (",
+      "    <div className={classes.wrap}>",
+      "      {name} {store.list.length}",
+      "      <div onClick={onHandelClick}>fetch</div>",
+      "    </div>",
+      "  ));",
+      "};",
+      "",
+      "export default ${1:ComponentName};",
+      ""
+    ],
+    "description": "generate react function components mobx full updates"
+  },
+  "generate store": {
+    "prefix": "impstore",
+    "scope": "typescript",
+    "body": [
+      "import { observable, action, runInAction } from 'mobx';",
+      "",
+      "class ${1:Name}Stroe {",
+      "  constructor() {",
+      "    runInAction(() => {",
+      "      this.isFetching = false;",
+      "      this.list = [];",
+      "    });",
+      "  }",
+      "",
+      "  @observable public list!: string[];",
+      "  @observable public isFetching!: boolean;",
+      "",
+      "  @action",
+      "  public getList = () => {",
+      "    this.isFetching = true;",
+      "",
+      "    setTimeout(() => {",
+      "      runInAction(() => {",
+      "        this.isFetching = false;",
+      "        this.list = ['A', 'B', 'C'];",
+      "      });",
+      "    }, 3000);",
+      "  };",
+      "}",
+      "",
+      "export default ${1:Name}Stroe;",
+      ""
+    ],
+    "description": "generate store"
+  }
+}

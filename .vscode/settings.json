@@ -1,0 +1,36 @@
+{
+  "editor.formatOnSave": true,
+  "eslint.options": {
+    "extensions": [
+      ".ts",
+      ".tsx",
+      ".js",
+      ".jsx"
+    ]
+  },
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "typescript.tsdk": "node_modules\\typescript\\lib",
+  "editor.tabSize": 2,
+  "stylelint.packageManager": "yarn",
+  "stylelint.syntax": "less",
+  "stylelint.validate": [
+    "css",
+    "less",
+  ],
+  "css.validate": false,
+  "less.validate": false,
+  "[less]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.stylelint": true
+    }
+  },
+  "git.ignoreLimitWarning": true
+}

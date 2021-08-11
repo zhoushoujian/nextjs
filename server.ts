@@ -5,7 +5,8 @@ import * as uuid from 'uuid';
 import client from '@/client';
 import logger from '@/lib/logger';
 import { formatDate, writeResponse, reportError, getIp, getIpFunc } from '@/lib/utils';
-import routers from '@/routes/index';
+import routes from '@/routes/index';
+import apis from '@/apis/index';
 
 const port = process.env.PORT || 5000;
 const handle = client.getRequestHandler();
@@ -38,7 +39,6 @@ client
         'Content-Type, authorization, Content-Length, Accept, X-Requested-With',
       );
       res.header('Access-Control-Allow-Methods', '*');
-      res.header('Content-Type', 'application/json;charset=utf-8');
       res.header('Access-Control-Expose-Headers', 'Authorization');
       next();
     });
@@ -72,7 +72,10 @@ client
     });
 
     // route
-    routers(server);
+    routes(server);
+
+    //apis
+    apis(server);
 
     process.on('uncaughtException', err => {
       logger.error('uncaughtException', err.stack || err.toString());

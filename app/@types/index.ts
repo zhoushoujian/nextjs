@@ -12,3 +12,5 @@ interface Window {
   __NEXT_DATA__: any;
   axios: any;
 }
+
+declare module '*.less';

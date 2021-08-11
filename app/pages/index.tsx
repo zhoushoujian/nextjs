@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Meta from '@/pages/meta';
 import { updateText } from '@/store/common';
 import useFetch from '@/hooks/use-fetch';
-import '@/theme/less/index.less';
+import * as Style from './index.less';
 
 const colors = ['#fff', '#ff0', '#f00', '#f0f', '#0ff', '#00f', '#0f0'];
 
@@ -44,12 +44,12 @@ const Main = ({ text }: IProps) => {
   return (
     <div>
       <Meta TITLE='index' META_DESCRIPTION='META_DESCRIPTION' META_KEYWORDS='META_KEYWORDS' noIndex={false} />
-      <div className='container'>
-        <div className='calculator'>
-          <div className='blueball'>
-            <div className='blueball1'></div>
-            <div className='blueball2'></div>
-            <div className='text' onClick={changeColor}>
+      <div className={Style.container}>
+        <div className={Style.calculator}>
+          <div className={Style.blueball}>
+            <div className={Style.blueball1}></div>
+            <div className={Style.blueball2}></div>
+            <div className={Style.text} onClick={changeColor}>
               {text}
             </div>
           </div>

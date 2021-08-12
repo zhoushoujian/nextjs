@@ -1,15 +1,17 @@
-const withLess = require('@zeit/next-less');
-const withCss = require('@zeit/next-css');
-const withPlugins = require('next-compose-plugins');
+const withLessExcludeAntd = require('./next-less.config.js');
 
-module.exports = withPlugins([withCss, withLess], {
-  lessLoaderOptions: {
-    javascriptEnabled: true,
-  },
+if (typeof require !== 'undefined') {
+  require.extensions['.less'] = () => {};
+}
+
+module.exports = withLessExcludeAntd({
   cssModules: true,
   cssLoaderOptions: {
-    camelCase: true,
+    importLoaders: 1,
     localIdentName: '[local]___[hash:base64:5]',
+  },
+  lessLoaderOptions: {
+    javascriptEnabled: true,
   },
   webpack(config) {
     return config;

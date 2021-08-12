@@ -14,3 +14,4 @@ interface Window {
 }
 
 declare module '*.less';
+declare module 'antd';

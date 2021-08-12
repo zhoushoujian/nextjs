@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-restricted-imports
 import { message } from 'antd';
 
 const axiosPendingArr: { u: string; cancel: () => void }[] = [];

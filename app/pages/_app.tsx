@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import axios from 'axios';
 import createStore from '@/store';
 import { axiosInterceptorsConfig } from '@/utils/axios-interceptors-config';
+import 'antd/dist/antd.less';
 
 const isServer = typeof window === 'undefined';
 

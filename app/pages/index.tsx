@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { connect } from 'react-redux';
+import { message } from 'antd';
 import Meta from '@/pages/meta';
 import { updateText } from '@/store/common';
 import useFetch from '@/hooks/use-fetch';
@@ -34,9 +35,11 @@ const Main = ({ text }: IProps) => {
       method: 'get',
       onSuccess: res => {
         console.log('api res', res);
+        message.success(res.response);
       },
       onError: error => {
         console.error('api error', error);
+        message.error(error.stack || error.toString());
       },
     });
   };

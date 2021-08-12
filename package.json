@@ -51,7 +51,6 @@
     "babel-plugin-transform-remove-console": "^6.9.4",
     "cross-env": "^7.0.2",
     "husky": "^4.3.8",
-    "next-compose-plugins": "^2.2.1",
     "ts-node": "^9.0.0",
     "tsconfig-paths": "^3.10.1",
     "typescript": "^3.9.7",

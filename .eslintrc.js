@@ -33,5 +33,6 @@ module.exports = {
     ],
     'class-methods-use-this': 0,
     'import/extensions': 0,
+    'no-restricted-imports': 0,
   },
 };

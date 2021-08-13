@@ -36,6 +36,8 @@ yarn start
 
 9. 接入 redux-logger 并挂在 store 状态到全局
 
+10. 为每一次请求分配 id
+
 ## 关联链接
 
 [快速打包 web 页面到移动端 app](https://github.com/zhoushoujian/cordova-template)

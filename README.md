@@ -16,7 +16,7 @@ yarn
 yarn start
 ```
 
-## Detail
+## Details
 
 1. 服务端和客户端都接入@来导入模块
 

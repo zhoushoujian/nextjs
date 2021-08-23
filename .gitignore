@@ -1,5 +1,3 @@
 node_modules
-.next
-_next
-logs
-dist
+ssr-project
+package-lock.json

@@ -1,4 +1,4 @@
-const withLessExcludeAntd = require('./next-less.config.js');
+const withLessExcludeAntd = require('./next-less.config');
 
 if (typeof require !== 'undefined') {
   require.extensions['.less'] = () => {};

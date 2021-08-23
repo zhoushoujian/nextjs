@@ -1,38 +1,26 @@
-/** @format */
-
 module.exports = {
   env: {
-    browser: true,
     es6: true,
     node: true,
   },
-  extends: ['@shuyun-ep-team/eslint-config'],
-  globals: {
-    axios: 'readonly',
-    logger: 'readonly',
-  },
+  extends: ['@shuyun-ep-team/eslint-config/base', '@shuyun-ep-team/eslint-config/prettier'],
+  parser: 'babel-eslint',
+  plugins: ['react', 'jsx-a11y'],
   parserOptions: {
-    ecmaVersion: 2018,
+    target:
+      'es5' /* Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017', 'ES2018', 'ES2019', 'ES2020', or 'ESNEXT'. */,
+    module:
+      'ESNext' /* Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', 'es2020', or 'ESNext'. */,
+    ecmaVersion: 6,
     sourceType: 'module',
-    project: './tsconfig.json',
-    createDefaultProgram: true,
+    ecmaFeatures: {
+      modules: true,
+      legacyDecorators: true,
+    },
   },
   rules: {
-    'no-console': 'off',
-    'max-len': [
-      'error',
-      150,
-      2,
-      {
-        ignoreUrls: true,
-        ignoreComments: false,
-        ignoreRegExpLiterals: true,
-        ignoreStrings: true,
-        ignoreTemplateLiterals: true,
-      },
-    ],
-    'class-methods-use-this': 0,
+    'no-unused-vars': 2,
+    '@typescript-eslint/no-unused-vars': ['off'],
     'import/extensions': 0,
-    'no-restricted-imports': 0,
   },
 };

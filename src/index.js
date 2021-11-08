@@ -25,6 +25,14 @@ function executeCmd(cmd, dest) {
 program.version(pkg.version).name('shuyun-ssr-cli').usage('<command>').description('nextjs服务端渲染脚手架');
 
 program
+  .command('--version')
+  .alias('-v')
+  .description('显示版本')
+  .action(function () {
+    console.log(pkg.version);
+  });
+
+program
   .command('init')
   .alias('i')
   .description('初始化项目')
